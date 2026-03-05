@@ -66,16 +66,28 @@
 
 // // heres how ->
 
-function display3(showResult){
-    console.log(showResult);
+
+
+//  using callback function -->
+
+function display3(parameter){
+     console.log(parameter)
 }
-function calculation3(num1,num2,callback){
-    let sum = num1+num2;
-    if (callback){
+function calculator3(num1,num2,callback){
+    let sum = num1+num2
+
+    callback(sum)//calling the display3 function. here display3 is the callback function. since its passed as the argument to calculator3 function.
+   
+    //now using a condition that the following code will be executed if the display3 function is passed as an argument. if not, then it wont be executed.
+   
+    /*if(callback){
         callback(sum)
-    }
-    else{
-        console.log('lol');
-    }
+    }*/
+   
 }
-calculation3(10,11,display3)
+calculator3(11,10,display3/* dont call the fuction just pass the function's name*/)
+
+// or you could just pass the function definition w/o defining it first above from here --> 
+/*calculator3(11,10,function display3(parameter){
+     console.log(parameter)
+})*/
